@@ -38,4 +38,8 @@ class CutomerAddressController extends Controller
       return response()->json('sucsuu',201);
 
    }
+   public function get_addresses(Request $request){
+        $addresses = Customer_address::where('customer_id' , $request->user()->id )->get();
+        return $addresses;
+   }
 }
