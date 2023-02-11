@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Meal;
 use App\Models\Order;
+use App\Models\Restaurant;
 use App\Traits\SaveImagesTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,10 +17,10 @@ class accountController extends Controller
    
    public function index(){
       $user_id = Auth::user()->getRawOriginal('restaurant_id');
-      // dd($user_id);
+      $restaurant = Restaurant::find($user_id);
       $order = Order::where('restaurant_id',$user_id)->get();
-      // dd($order);
-      return view('content.owner.index',['orders'=>$order]);
+
+      return view('content.owner.index',['orders'=>$order,'restaurant'=>$restaurant]);
    }
 
    public function meals(){

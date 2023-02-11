@@ -46,6 +46,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 
 
 // get all resturant 
+Route::get('/resturantsAll', [ResturantsController::class, 'get2']);
 Route::get('/resturants', [ResturantsController::class, 'get']);
 Route::get('/resturantsPaginate', [ResturantsController::class, 'getWithPaginate']);
 

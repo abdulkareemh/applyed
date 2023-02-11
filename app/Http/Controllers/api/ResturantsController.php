@@ -19,6 +19,21 @@ class ResturantsController extends Controller
     public function get(){
 
       try{
+         $resturants = Restaurant::whereHas('user',function($query){
+            $query->where('expired',1);
+         })->get();
+               
+           
+         return response()->json($resturants);
+         }
+      catch(Exception $e){
+        return $e;
+            return response()->json(['Erorr' => 'try again later']);
+         }
+      }
+    public function get2(){
+
+      try{
          $resturants = Restaurant::orderBy('location_id')->get();
          // $res=array();
          // for($i =0;$i<sizeof($resturants) ;$i++  ){

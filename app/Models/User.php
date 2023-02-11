@@ -28,6 +28,7 @@ class User extends Authenticatable
         'expired_date',
         'restaurant_id',
         'is_admin',
+        'expired',
 
     ];
 
