@@ -7,6 +7,7 @@ use App\Models\Restaurant;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\Unique;
 use Symfony\Component\VarDumper\Caster\CutStub;
 
@@ -35,11 +36,18 @@ class CutomerController extends Controller
          'restaurant_id'=>['required','integer'],
          'email' => ['required', 'email','Unique:users'],
          'password' => ['required'],
-         'is_admin'=>['required'],
       ]);
       
       // dd($validated);
-      $user = User::create($validated);
+      $user = User::create([
+        'name'=> $validated['name'],
+        'expired_date'=> $validated['expired_date'],
+        'restaurant_id'=> $validated['restaurant_id'],
+        'email'=> $validated['email'],
+        'is_admin'=> 0,
+        'password'=> Hash::make($validated['password']),
+
+      ]);
       // dd($user);
      
       return redirect()->route('dashboard.cutomers')->with('success', 'done');
