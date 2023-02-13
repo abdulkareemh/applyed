@@ -27,7 +27,7 @@ class ResturantsController extends Controller
          return response()->json($resturants);
          }
       catch(Exception $e){
-        return $e;
+
             return response()->json(['Erorr' => 'try again later']);
          }
       }

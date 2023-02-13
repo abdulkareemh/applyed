@@ -55,3 +55,4 @@ Route::get('/resturant/{id}', [ResturantsController::class, 'meals']);
 Route::get('/test/{id}', [ResturantsController::class, 'test']);
 
 Route::get('/popularMeals',[MealsController::class,'popular']);
+Route::get('/RcomandtMeals',[MealsController::class,'RE']);
