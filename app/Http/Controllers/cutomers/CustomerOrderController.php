@@ -25,7 +25,6 @@ class CustomerOrderController extends Controller
          
          'location_id'=>['required','integer'],
          'restaurant_id' => ['required','integer'],
-         'customer_id' => ['required','integer'],
          'meals_id'=>['required','array'],
          
       ]);
@@ -35,7 +34,7 @@ class CustomerOrderController extends Controller
            $price = $price + (int)$m->price;
          }
       $order = Order::create([
-         'customer_id' => $request->customer_id,
+         'customer_id' => $request->user()->id,
          'restaurant_id' => $request->restaurant_id,
          'total'=>$price,
          'location_id'=>$request->location_id,
