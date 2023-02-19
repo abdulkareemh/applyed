@@ -46,7 +46,7 @@ class accountController extends Controller
          'description'=>['required'],
         ]);
         
-        $user_id = Auth::user()->getRawOriginal('restaurant_id');
+        $res_id = Auth::user()->getRawOriginal('restaurant_id');
       //   dd($request);
      $file_name = $this->saveImage($request->image, 'images/meals');
      
@@ -56,7 +56,7 @@ class accountController extends Controller
         'category_id'=>$request->category_id,
         'image' => $file_name,
         'description'=>$request->description,
-        'restaurant_id'=>$user_id,
+        'restaurant_id'=>$res_id,
 
      ]);
      return redirect()->route('dashboard.Meals')->with('success', 'done');

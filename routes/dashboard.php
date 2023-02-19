@@ -76,10 +76,11 @@ Route::group(['middleware'=> ['owner']],function()
    Route::get('/owner/meals',[accountController::class,'meals'])->name('dashboard.Meals');
    Route::get('/owner/createmeal',   [accountController::class,'form']);
    Route::post('/owner/createmeal',  [accountController::class,'store'])->name('dashboard.createmeal');
-
+    Route::post('/owner/delmeal/{id}',[iteamsController::class,'delMeal']);
+    // Route::get('/owner/edit',[iteamsController::class,'edit']);
 
    Route::get('/owner/items/{id}',   [accountController::class,'items']);
-   Route::post('/owner/items/cancel',   [iteamsController::class,'cancel']);
-   Route::post('/owner/items/aprove',   [iteamsController::class,'aprove']);
+   Route::post('/owner/items/cancel/{id}',   [iteamsController::class,'cancel']);
+   Route::post('/owner/items/aprove/{id}',   [iteamsController::class,'aprove']);
 });
 

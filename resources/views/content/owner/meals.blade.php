@@ -25,7 +25,7 @@ $navbarHideToggle = false;
           <th>name</th>
           <th>price</th>
           <th>description</th>
-          <th>Category</th>
+          <th>Manage</th>
           
         </tr>
       </thead>
@@ -40,15 +40,13 @@ $navbarHideToggle = false;
          <td>{{$meal->name}}</td>
          <td>{{$meal->price}}</td>
          <td>{{$meal->description}}</td>
-         <td>{{$meal->category_id}}</td>
 
          
          <td>
             <div class="dropdown">
               <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="bx bx-dots-vertical-rounded"></i></button>
               <div class="dropdown-menu">
-                <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i> Edit</a>
-                <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-1"></i> Delete</a>
+                <a class="dropdown-item" href="javascript:del('{{$meal->id}}')"><i class="bx bx-trash me-1"></i> Delete</a>
               </div>
             </div>
           </td>
@@ -60,7 +58,17 @@ $navbarHideToggle = false;
   </div>
 </div>
 </div>
-
+<form id="Form" action="" method="post">
+  @csrf
+  </form>
+  <script>
+   function del (id) {
+      var l ="/dashboard/owner/delmeal/"+id;
+      document.getElementById("Form").action = l; 
+      document.getElementById("Form").submit(); 
+   
+   }
+  </script>
 
 @if (Session::has('success'))
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>

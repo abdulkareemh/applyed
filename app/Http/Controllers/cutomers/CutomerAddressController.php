@@ -35,7 +35,7 @@ class CutomerAddressController extends Controller
          'house_number'=>$request->house_number,
       ]);
 
-      return response()->json('sucsuu',201);
+      return response()->json('succsess',201);
 
    }
    public function get_addresses(Request $request){

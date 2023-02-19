@@ -48,10 +48,13 @@ class CustomerOrderController extends Controller
 
     public function rate($id,Request $request)
     {
+        $validated = $request->validate([
+            'rating'=>['required','integer','min:0','max:5'],
+         ]);
       $res = Restaurant::findOrfail($id);
       $res->rating=$res->rating+$request->rating;
       $res->number_of_rating+=1;
       $res->save();
-      return response()->json(['message' => 'success'], 200);
+      return response()->json(['message' => 'success'], 201);
     }
 }
