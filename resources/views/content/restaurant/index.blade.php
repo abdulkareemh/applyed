@@ -12,7 +12,7 @@
 </div>
 <br>
 <div class="card">
-  <h5 class="card-header">Table Basic</h5>
+  <h5 class="card-header">Restaurant Table </h5>
   <div class="table-responsive text-nowrap">
     <table class="table">
       <thead>
@@ -21,7 +21,7 @@
           <th>name</th>
           <th>Location</th>
           <th>Category</th>
-          <th>Owner</th>
+          
           <th>Actions</th>
         </tr>
       </thead>
@@ -36,7 +36,7 @@
          <td>{{$data->name}}</td>
          <td>{{$data->location_id}}</td>
          <td>{{$data->category_id}}</td>
-         <td>{{$data->user_id}}</td>
+        
          
          
 

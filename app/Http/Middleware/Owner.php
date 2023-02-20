@@ -20,7 +20,9 @@ class Owner
       if (Auth::user() &&  Auth::user()->is_admin == 0) {
          return $next($request);
       }
-
-      return redirect('/');
+      if (Auth::user() &&  Auth::user()->is_admin == 1) {
+        return redirect('/dashboard');
+     }
+      return redirect('/dashboard/login');
    }
 }
