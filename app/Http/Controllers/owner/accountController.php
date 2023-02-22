@@ -18,7 +18,7 @@ class accountController extends Controller
    public function index(){
       $user_id = Auth::user()->getRawOriginal('restaurant_id');
       $restaurant = Restaurant::find($user_id);
-      $order = Order::where('restaurant_id',$user_id)->get();
+      $order = Order::where('restaurant_id',$user_id)->orderBy('created_at', 'DESC')->get();
 
       return view('content.owner.index',['orders'=>$order,'restaurant'=>$restaurant]);
    }

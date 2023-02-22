@@ -40,10 +40,12 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('/orders', [CustomerOrderController::class, 'orders']);
 
     Route::post('/order', [CustomerOrderController::class, 'order']);
-
+    
     Route::post('/submitRate/{id}', [CustomerOrderController::class, 'rate']);
 });
-
+ Route::post('/test',function(Request $request){
+    return $request;
+ });
 
 // get all resturant 
 Route::get('/resturantsAll', [ResturantsController::class, 'get2']);

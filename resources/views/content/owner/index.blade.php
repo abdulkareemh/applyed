@@ -25,7 +25,7 @@ $navbarHideToggle = false;
             <div class="card h-100">
                 <div class="card-body">
                     <h5 class="card-title">Orders</h5>
-                    <h6 class="card-subtitle text-muted">Support card subtitle</h6>
+                    <h6 class="card-subtitle text-muted"></h6>
                     <div class="table-responsive text-nowrap">
                         <table class="table">
                             <thead>
